@@ -1,9 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
 import Car from '../Domains/Car';
 import BodyNotFound from '../errors/BodyNotFound';
+import IdNotFoundError from '../errors/IdNotFoundError';
 import ICar from '../Interfaces/ICar';
 import IService from '../Interfaces/IService';
 import CarODM from '../Models/CarODM';
+
+const ID_NOT_FOUND = 'Car not found'; 
 
 export default class CarService implements IService<ICar, Car> {
   private odm: CarODM = new CarODM();
@@ -12,14 +15,21 @@ export default class CarService implements IService<ICar, Car> {
     const cars = await this.odm.createVehicle(dto);
     return new Car(cars);
   }
-  // readAll(): Promise<Car[]> {
-  //   throw new Error('Method not implemented.');
-  // }
-  // readById(id: string): Promise<Car> {
-  //   throw new Error('Method not implemented yet.');
-  // }
-  // update(id: string, dto: ICars): Promise<Car> {
-  //   throw new Error('Method not implemented');
+
+  public async readAll(): Promise<Car[]> {
+    const cars = await this.odm.findAllVehicle();
+    return cars.map((car) => new Car(car));
+  }
+
+  public async readById(id: string): Promise<Car> {
+    const car = await this.odm.findById(id);
+    if (!car) throw new IdNotFoundError(ID_NOT_FOUND);
+    return new Car(car);
+  }
+  
+  // async update(id: string, dto: ICar): Promise<Car> {
+  //   const car = await this.odm.update(id, dto);
+  //   if (!car) throw new IdNotFoundError(ID_NOT_FOUND);
   // }
   // delete(id: string): Promise<void> {
   //   throw new Error('Method not implemented Again.');
