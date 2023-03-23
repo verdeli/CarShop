@@ -12,7 +12,7 @@ const inputMock: ICar = {
 };
 
 const outputMock: Car = new Car({
-  id: '9123789128937891273hj123',
+  id: '641c7c384aadffd89b2148b6',
   model: 'Uno',
   year: 2009,
   color: 'Prata',
@@ -22,8 +22,8 @@ const outputMock: Car = new Car({
   seatsQty: 5,
 });
 
-const inputMocks:Car[] = [new Car({
-  id: '9123789128937891273hj123',
+const inputMocks: Car[] = [new Car({
+  id: '641c7c384aadffd89b2148b6',
   model: 'Uno',
   year: 2009,
   color: 'Prata',
@@ -34,7 +34,7 @@ const inputMocks:Car[] = [new Car({
 })];
 
 const outputMocks: Car[] = [new Car({
-  id: '9123789128937891273hj123',
+  id: '641c7c384aadffd89b2148b6',
   model: 'Uno',
   year: 2009,
   color: 'Prata',
@@ -44,8 +44,8 @@ const outputMocks: Car[] = [new Car({
   seatsQty: 5,
 })];
 
-const ID_CARS = '9123789128937891273hj123';
-const ID_ERROR = '9123789128937891273hj12#';
+const ID_CARS = '641c7c384aadffd89b2148b6';
+const ID_ERROR = '641c7c384aadffd89b2148b6#';
   
 export { 
   inputMock, 
