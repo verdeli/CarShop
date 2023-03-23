@@ -2,12 +2,12 @@ import { NextFunction, Request, Response, Router } from 'express';
 import Motor from '../Domains/Motorcycle';
 import IMotorcycle from '../Interfaces/IMotorcycle';
 import IService from '../Interfaces/IService';
-import MotocycleService from '../Services/MotorcycleService';
+import MotorcycleService from '../Services/MotorcycleService';
 import AbstractController from './AbstractController';
 
-export default class CarController extends AbstractController<IService<IMotorcycle, Motor>> {
+export default class MotorcycleController extends AbstractController<IService<IMotorcycle, Motor>> {
   constructor() {
-    super(new MotocycleService());
+    super(new MotorcycleService());
   }
 
   public async create(req: Request, res: Response): Promise<Response> {

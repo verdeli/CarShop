@@ -1,19 +1,19 @@
-import IMotocycle from '../Interfaces/IMotorcycle';
+import IMotorcycle from '../Interfaces/IMotorcycle';
 import Vehicle from './Vehicle';
 
 export default class Motocycle extends Vehicle {
   private category: string;
   private engineCapacity: number;
-  constructor(motocycle: IMotocycle) {
+  constructor(motorcycle: IMotorcycle) {
     super({
-      id: motocycle.id,
-      model: motocycle.model,
-      year: motocycle.year,
-      color: motocycle.color,
-      status: motocycle.status,
-      buyValue: motocycle.buyValue,
+      id: motorcycle.id,
+      model: motorcycle.model,
+      year: motorcycle.year,
+      color: motorcycle.color,
+      status: motorcycle.status,
+      buyValue: motorcycle.buyValue,
     });
-    this.category = motocycle.category;
-    this.engineCapacity = motocycle.engineCapacity;
+    this.category = motorcycle.category;
+    this.engineCapacity = motorcycle.engineCapacity;
   }
 }
