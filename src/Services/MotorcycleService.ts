@@ -6,7 +6,7 @@ import IMotocycle from '../Interfaces/IMotorcycle';
 import IService from '../Interfaces/IService';
 import MotocycleODM from '../Models/MotorcycleODM';
 
-const ID_NOT_FOUND = 'Motocycle not found'; 
+const ID_NOT_FOUND = 'Motorcycle not found'; 
 
 export default class Motocycle implements IService<IMotocycle, Motor> {
   private odm: MotocycleODM = new MotocycleODM();
@@ -17,20 +17,20 @@ export default class Motocycle implements IService<IMotocycle, Motor> {
   }
 
   public async readAll(): Promise<Motor[]> {
-    const cars = await this.odm.findAllVehicle();
-    return cars.map((car) => new Motor(car));
+    const motorcycle = await this.odm.findAllVehicle();
+    return motorcycle.map((car) => new Motor(car));
   }
 
   public async readById(id: string): Promise<Motor> {
-    const car = await this.odm.findById(id);
-    if (!car) throw new IdNotFoundError(ID_NOT_FOUND);
-    return new Motor(car);
+    const moto = await this.odm.findById(id);
+    if (!moto) throw new IdNotFoundError(ID_NOT_FOUND);
+    return new Motor(moto);
   }
   
   async update(id: string, dto: IMotocycle): Promise<Motor> {
-    const car = await this.odm.update(id, dto);
-    if (!car) throw new IdNotFoundError(ID_NOT_FOUND);
-    return new Motor(car);
+    const moto = await this.odm.update(id, dto);
+    if (!moto) throw new IdNotFoundError(ID_NOT_FOUND);
+    return new Motor(moto);
   }
   // delete(id: string): Promise<void> {
   //   throw new Error('Method not implemented Again.');
