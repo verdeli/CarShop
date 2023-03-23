@@ -33,13 +33,27 @@ export default class CarController extends AbstractController<IService<ICar, Car
     }
   }
 
+  private async update(
+    req: Request, 
+    res: Response, 
+    next: NextFunction,
+  ): Promise<Response | undefined> {
+    try {
+      const result = await this.service.update(req.params.id, req.body);
+      return res.status(200).json(result);
+    } catch (error) {
+      next(error);
+    }
+  }
+
   initRoutes(): Router {
     this.router.post('/cars', this.service.isValidBody, (req, res) => 
       this.create(req, res));
 
     this.router.get('/cars', (req, res) => this.readAll(req, res));
     this.router.get('/cars/:id', (req, res, next) => this.readById(req, res, next));
-
+    this.router.put('/cars/:id', this.service.isValidBody, (req, res, next) =>
+      this.update(req, res, next));
     return this.router;
   }  
 }

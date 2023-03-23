@@ -27,10 +27,11 @@ export default class CarService implements IService<ICar, Car> {
     return new Car(car);
   }
   
-  // async update(id: string, dto: ICar): Promise<Car> {
-  //   const car = await this.odm.update(id, dto);
-  //   if (!car) throw new IdNotFoundError(ID_NOT_FOUND);
-  // }
+  async update(id: string, dto: ICar): Promise<Car> {
+    const car = await this.odm.update(id, dto);
+    if (!car) throw new IdNotFoundError(ID_NOT_FOUND);
+    return new Car(car);
+  }
   // delete(id: string): Promise<void> {
   //   throw new Error('Method not implemented Again.');
   // }

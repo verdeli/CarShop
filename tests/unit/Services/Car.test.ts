@@ -57,4 +57,10 @@ describe('Testando os serviços do carro: ', function () {
       expect((error as Error).message).to.equal('Invalid mongo id');
     }
   });
+  it('Deverá atualizar o carro com sucesso', async function () {
+    sinon.stub(Model, 'findByIdAndUpdate').resolves(outputMock);
+    const service = new CarService();
+    const result = await service.update(ID_CARS, inputMock);
+    expect(result).to.be.deep.equal(outputMock);
+  });
 });

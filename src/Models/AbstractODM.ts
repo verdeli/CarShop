@@ -1,4 +1,4 @@
-import { model, Schema, Model, models, isValidObjectId } from 'mongoose';
+import { model, Schema, Model, models, isValidObjectId, UpdateQuery } from 'mongoose';
 import IdInvalidError from '../errors/IdInvalidError';
 
 const INVALID_FORMAT = 'Invalid mongo id';
@@ -30,14 +30,14 @@ export default class AbstractODM<T> {
     return this.model.findById(id);
   }
 
-  // public async update(id: string, dto: Partial<T>): Promise <T | null> {
-  //   if (!isValidObjectId(id)) {
-  //     throw new IdInvalidError(INVALID_FORMAT);
-  //   }
-  //   return this.model.findByIdAndUpdate(
-  //     { id },
-  //     { ...dto } as UpdateQuery<T>,
-  //     { new: true },
-  //   ); 
-  // }
+  public async update(_id: string, dto: Partial<T>): Promise <T | null> {
+    if (!isValidObjectId(_id)) {
+      throw new IdInvalidError(INVALID_FORMAT);
+    }
+    return this.model.findByIdAndUpdate(
+      { _id },
+      { ...dto } as UpdateQuery<T>,
+      { new: true },
+    ); 
+  }
 }
