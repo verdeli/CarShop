@@ -8,7 +8,7 @@ import MotorcycleODM from '../Models/MotorcycleODM';
 
 const ID_NOT_FOUND = 'Motorcycle not found'; 
 
-export default class MotocycleService implements IService<IMotorcycle, Motor> {
+export default class MotorcycleService implements IService<IMotorcycle, Motor> {
   private odm: MotorcycleODM = new MotorcycleODM();
   
   public async create(dto: IMotorcycle): Promise<Motor> {

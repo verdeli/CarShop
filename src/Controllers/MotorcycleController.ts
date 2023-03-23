@@ -53,7 +53,7 @@ export default class MotorcycleController extends AbstractController<IService<IM
     this.router.get('/motorcycles', (req, res) => this.readAll(req, res));
     this.router.get('/motorcycles/:id', (req, res, next) => this.readById(req, res, next));
     this.router.put('/motorcycles/:id', this.service.isValidBody, (req, res, next) =>
-      this.update(req, res, next));
+      this.update(req, res, next)); 
     return this.router;
   }  
 }

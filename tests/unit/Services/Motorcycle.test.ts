@@ -45,7 +45,7 @@ describe('Testando os serviços das motos: ', function () {
       const service = new MotorcycleService();
       await service.readById(ID_MOTO);
     } catch (error) {
-      expect((error as Error).message).to.equal('Motocycle not found');
+      expect((error as Error).message).to.equal('Motorcycle not found');
     }
   });
   it('Deverá aparecer a mensagem de erro do mongo id', async function () {
