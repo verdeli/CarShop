@@ -44,7 +44,7 @@ export default class Motocycle implements IService<IMotocycle, Motor> {
     }
     function isValidMoto(moto: IMotocycle): void {
       if (!moto.category || !moto.engineCapacity) { 
-        throw new BodyNotFound('Body not found car');
+        throw new BodyNotFound('Body not found motorcycle'); 
       }
     }
     
