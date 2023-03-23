@@ -1,5 +1,6 @@
 import express from 'express';
 import CarController from './Controllers/CarController';
+import MotorcycleController from './Controllers/MotorcycleController';
 import ErrorHandler from './middlewares/ErrorHandler';
 
 class App {
@@ -30,6 +31,7 @@ class App {
 
   private initRoutes(): void {
     this.app.use(new CarController().initRoutes());
+    this.app.use(new MotorcycleController().initRoutes());
   }
 }
 
