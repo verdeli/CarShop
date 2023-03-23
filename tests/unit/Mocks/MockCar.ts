@@ -46,20 +46,6 @@ const outputMocks: Car[] = [new Car({
 
 const ID_CARS = '9123789128937891273hj123';
 const ID_ERROR = '9123789128937891273hj12#';
-
-const responseMock = {} as Response;
-const requestMock = {
-  body: {
-    id: '9123789128937891273hj123',
-    model: 'Uno',
-    year: 2009,
-    color: 'Prata',
-    status: true,
-    buyValue: 13000,
-    doorsQty: 2,
-    seatsQty: 5,
-  },
-} as Request;
   
 export { 
   inputMock, 
@@ -68,6 +54,4 @@ export {
   outputMocks,
   ID_CARS,
   ID_ERROR,
-  responseMock,
-  requestMock, 
 };
